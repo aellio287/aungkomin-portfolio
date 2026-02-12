@@ -1,42 +1,8 @@
 
-import React, { useState, useRef, useEffect } from 'react';
-import { MapPin, Library, User, GraduationCap, Camera } from 'lucide-react';
+import React from 'react';
+import { MapPin, Library, GraduationCap } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  // Synchronous initialization from localStorage to prevent "flash" of missing state
-  const [profileImage, setProfileImage] = useState<string | null>(() => {
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem('aung-ko-min-profile-image');
-    }
-    return null;
-  });
-  
-  const [useFallback, setUseFallback] = useState(false);
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result as string;
-        setProfileImage(base64String);
-        setUseFallback(false);
-        localStorage.setItem('aung-ko-min-profile-image', base64String);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const triggerUpload = () => {
-    fileInputRef.current?.click();
-  };
-
-  // Source priority: 
-  // 1. Manually uploaded image in localStorage
-  // 2. The static asset /profile.jpg
-  const currentSrc = profileImage || "/profile.jpg";
-
   return (
     <section id="home" className="relative pt-12 md:pt-28 pb-16 overflow-hidden bg-[#FDFCF8] dark:bg-slate-950 scroll-mt-20">
       {/* Decorative background elements */}
@@ -76,56 +42,23 @@ const Hero: React.FC = () => {
           </p>
         </div>
 
-        {/* Professional Portrait - Using CSS for Guaranteed Circle Shape */}
+        {/* Professional Portrait - Fixed Static Image */}
         <div className="relative shrink-0 order-1 lg:order-2 flex flex-col items-center">
-          <input 
-            type="file" 
-            ref={fileInputRef} 
-            onChange={handleImageUpload} 
-            accept="image/*" 
-            className="hidden" 
-          />
-
-          <div 
-            className="relative w-[280px] h-[280px] md:w-[380px] md:h-[380px] lg:w-[460px] lg:h-[460px] group cursor-pointer"
-            onDoubleClick={triggerUpload}
-            title="Double-click to change photo"
-          >
+          <div className="relative w-[280px] h-[280px] md:w-[380px] md:h-[380px] lg:w-[460px] lg:h-[460px] aspect-square">
             {/* Outer shadow glow */}
-            <div className="absolute inset-0 bg-amber-200/20 dark:bg-amber-500/10 rounded-full blur-2xl group-hover:blur-3xl transition-all duration-700 no-print"></div>
+            <div className="absolute inset-0 bg-amber-200/20 dark:bg-amber-500/10 rounded-full blur-2xl no-print"></div>
             
             {/* The Outer Ring Wrapper */}
-            <div className="relative w-full h-full rounded-full p-2 bg-gradient-to-tr from-amber-100 via-white to-indigo-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 shadow-2xl transition-transform duration-700 group-hover:scale-[1.01] flex items-center justify-center">
+            <div className="relative w-full h-full rounded-full p-2 bg-gradient-to-tr from-amber-100 via-white to-indigo-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 shadow-2xl flex items-center justify-center">
               
-              {/* Inner Circle Container - This forces the circular shape even if img fails */}
+              {/* Inner Circle Container - Guaranteed circular shape */}
               <div className="w-full h-full rounded-full border-[8px] border-white dark:border-slate-800 overflow-hidden bg-slate-50 dark:bg-slate-900 relative z-10 flex items-center justify-center">
+                <img 
+                  src="/profile.png" 
+                  alt="Matty profile photo" 
+                  className="w-full h-full object-cover transition-transform duration-1000"
+                />
                 
-                {/* Image or Fallback */}
-                {(!useFallback || profileImage) ? (
-                  <img 
-                    src={currentSrc} 
-                    alt="Aung Ko Min" 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                    onError={() => {
-                      // Only trigger fallback if we don't have a user-uploaded image
-                      if (!profileImage) setUseFallback(true);
-                    }}
-                  />
-                ) : (
-                  <div className="w-full h-full bg-slate-100 dark:bg-slate-800 flex flex-col items-center justify-center text-slate-300 p-8 text-center">
-                    <User className="w-20 h-20 md:w-32 md:h-32 mb-4 opacity-20" />
-                    <p className="text-[0.6rem] md:text-xs font-black uppercase tracking-[0.2em] opacity-40">Double-click to set photo</p>
-                  </div>
-                )}
-                
-                {/* Hover hint overlay */}
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-20 no-print">
-                   <div className="flex flex-col items-center text-white gap-2">
-                     <Camera className="w-8 h-8" />
-                     <span className="text-[0.6rem] font-bold uppercase tracking-widest">Change Photo</span>
-                   </div>
-                </div>
-
                 {/* Overlay gradient for depth */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/5 pointer-events-none z-10"></div>
               </div>
