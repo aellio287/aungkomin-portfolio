@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Library, GraduationCap, FileDown, Mail } from 'lucide-react';
+import { MapPin, Library, GraduationCap, FileDown, Mail, Bookmark } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -14,8 +14,8 @@ const Hero: React.FC = () => {
         {/* Content Section */}
         <div className="relative z-10 w-full text-center lg:text-left order-2 lg:order-1 flex-1">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/60 dark:bg-amber-900/30 text-amber-900 dark:text-amber-400 text-[0.7rem] font-black uppercase tracking-widest mb-8 no-print border border-amber-200/50 dark:border-amber-800/30 shadow-sm">
-            <GraduationCap className="w-3.5 h-3.5" />
-            <span>Future Librarian</span>
+            <Bookmark className="w-3.5 h-3.5" />
+            <span>About Me</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 dark:text-slate-50 mb-6 leading-[1.1] serif tracking-tight">
@@ -34,11 +34,11 @@ const Hero: React.FC = () => {
           </div>
 
           <h2 className="text-3xl md:text-5xl font-black text-amber-800 dark:text-amber-500 mb-8 font-sans tracking-tight opacity-95">
-            Aspiring Librarian
+            About Me
           </h2>
           
           <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0 font-light">
-            I am a passionate reader from Mandalay with a heart for service. With a background in preschool education and customer service, I am now dedicated to building a career in professional librarianship.
+            I am a passionate reader from Mandalay with a strong heart for service. With a background in preschool education and customer service, I am eager to build a career in professional librarianship and contribute positively to a library environment.
           </p>
 
           {/* Call to Action Buttons */}
@@ -76,7 +76,7 @@ const Hero: React.FC = () => {
               <div className="w-full h-full rounded-full border-[8px] border-white dark:border-slate-800 overflow-hidden bg-slate-50 dark:bg-slate-900 relative z-10 flex items-center justify-center">
                 <img 
                   src="/profile.png" 
-                  alt="Matty profile photo" 
+                  alt="Aung Ko Min profile photo" 
                   className="w-full h-full object-cover transition-transform duration-1000"
                 />
                 
