@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { MapPin, Library, GraduationCap } from 'lucide-react';
+import { MapPin, Library, GraduationCap, FileDown, Mail } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
@@ -37,9 +37,30 @@ const Hero: React.FC = () => {
             Aspiring Librarian
           </h2>
           
-          <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed mb-4 max-w-2xl mx-auto lg:mx-0 font-light">
+          <p className="text-xl md:text-2xl text-slate-700 dark:text-slate-300 leading-relaxed mb-10 max-w-2xl mx-auto lg:mx-0 font-light">
             I am a passionate reader from Mandalay with a heart for service. With a background in preschool education and customer service, I am now dedicated to building a career in professional librarianship.
           </p>
+
+          {/* Call to Action Buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 no-print">
+            <a 
+              href="/Aung-Ko-Min-CV.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-8 py-4 bg-amber-800 hover:bg-amber-900 dark:bg-amber-600 dark:hover:bg-amber-500 text-white rounded-2xl font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 group"
+            >
+              <FileDown className="w-5 h-5 group-hover:animate-bounce" />
+              <span>Download CV</span>
+            </a>
+            
+            <a 
+              href="#contact"
+              className="flex items-center gap-2 px-8 py-4 bg-white dark:bg-slate-900 text-slate-900 dark:text-white border-2 border-slate-200 dark:border-slate-800 hover:border-amber-800 dark:hover:border-amber-500 rounded-2xl font-bold transition-all"
+            >
+              <Mail className="w-5 h-5" />
+              <span>Contact Me</span>
+            </a>
+          </div>
         </div>
 
         {/* Professional Portrait - Fixed Static Image */}
