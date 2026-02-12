@@ -13,12 +13,7 @@ const Hero: React.FC = () => {
         
         {/* Content Section */}
         <div className="relative z-10 w-full text-center lg:text-left order-2 lg:order-1 flex-1">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100/60 dark:bg-amber-900/30 text-amber-900 dark:text-amber-400 text-[0.7rem] font-black uppercase tracking-widest mb-8 no-print border border-amber-200/50 dark:border-amber-800/30 shadow-sm">
-            <Bookmark className="w-3.5 h-3.5" />
-            <span>About Me</span>
-          </div>
-          
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-slate-900 dark:text-slate-50 mb-6 leading-[1.1] serif tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 dark:text-slate-50 mb-6 leading-[1.1] serif tracking-tight whitespace-nowrap">
             Aung Ko Min
           </h1>
           

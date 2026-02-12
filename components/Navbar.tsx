@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { BookText, Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,18 +85,8 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="sticky top-0 z-50 glass-effect border-b border-amber-100 dark:border-slate-800 px-6 py-4">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Brand */}
-        <a 
-          href="#home" 
-          onClick={(e) => handleNavClick(e, '#home')}
-          className="flex items-center gap-2 group"
-        >
-          <BookText className="w-7 h-7 text-amber-800 dark:text-amber-500 group-hover:rotate-12 transition-transform" />
-          <span className="text-xl font-bold tracking-tight text-amber-900 dark:text-amber-50 serif">Aung Ko Min</span>
-        </a>
-
-        {/* Desktop Nav */}
+      <div className="max-w-7xl mx-auto flex justify-end items-center">
+        {/* Desktop Nav - Aligned Right */}
         <div className="hidden lg:flex gap-6 items-center">
           {navLinks.map((link) => (
             <a
@@ -127,7 +117,7 @@ const Navbar: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Actions */}
+        {/* Mobile Actions - Also Aligned Right */}
         <div className="flex items-center gap-2 lg:hidden">
           <button 
             onClick={toggleDarkMode}

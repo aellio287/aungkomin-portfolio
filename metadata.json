@@ -1,7 +1,6 @@
-
 {
-  "name": "Aung Ko Min's Portfolio",
-  "description": "A professional and elegant portfolio for Aung Ko Min, a library assistant from Mandalay, featuring a library-themed UI and an AI-powered reading assistant.",
+  "name": "Library Portfolio",
+  "description": "A professional and elegant portfolio for a library assistant from Mandalay, featuring a library-themed UI and an AI-powered reading assistant.",
   "requestFramePermissions": [
     "camera",
     "microphone"
