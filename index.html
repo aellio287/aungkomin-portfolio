@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aung Ko Min | Aspiring Librarian</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['Libre Baskerville', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+            },
+            fontSize: {
+              'base': '1.0625rem', // 17px base for better readability
+            },
+          },
+        },
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        line-height: 1.7; /* Professional line height */
+      }
+      h1, h2, h3, .serif {
+        font-family: 'Libre Baskerville', serif;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .dark .glass-effect {
+        background: rgba(2, 6, 23, 0.8);
+      }
+
+      /* Accessibility Focus Styles */
+      :focus-visible {
+        outline: 2px solid #92400e; /* Amber-800 */
+        outline-offset: 2px;
+      }
+      .dark :focus-visible {
+        outline-color: #f59e0b; /* Amber-500 */
+      }
+
+      /* Print Styles */
+      @media print {
+        nav, 
+        button, 
+        #assistant,
+        .no-print,
+        [role="button"],
+        .bg-amber-50,
+        .glass-effect {
+          display: none !important;
+        }
+        
+        body {
+          background: white !important;
+          color: black !important;
+          font-size: 12pt;
+          line-height: 1.5;
+        }
+        
+        #home, .max-w-5xl {
+          max-width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          box-shadow: none !important;
+          border: none !important;
+        }
+
+        .rounded-3xl, .rounded-2xl {
+          border-radius: 0 !important;
+          border: none !important;
+          border-bottom: 1px solid #eee !important;
+        }
+
+        h1, h2, h3 {
+          page-break-after: avoid;
+          color: black !important;
+        }
+
+        section {
+          page-break-inside: avoid;
+          margin-bottom: 2rem;
+        }
+
+        img {
+          max-width: 150px !important;
+          filter: grayscale(100%);
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[#FDFCF8] text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 antialiased">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
